@@ -1,5 +1,7 @@
 package com.alansep.quereasy;
 
+import java.lang.reflect.Field;
+
 public class Util {
 
 	public static boolean isNumber(Object object) {
@@ -14,6 +16,10 @@ public class Util {
 	
 	public static Class<?> pegarClasse(Object object){
 		return object.getClass();
+	}
+	
+	public static Field[] pegarCampos(Class<?> klass) {
+		return klass.getDeclaredFields();
 	}
 	
 }
