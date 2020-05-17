@@ -1,23 +1,34 @@
 package com.alansep.quereasy;
 
-import com.alansep.quereasy.definitions.QuereasyInterface;
+import com.alansep.quereasy.generators.GeradorCreateTable;
 
-public class Quereasy implements QuereasyInterface {
+public class Quereasy implements GeradorCreateTable {
 
 	@Override
-	public String getQuery() {
+	public String gerarQuery(Object object) {
+		String query = "CREATE TABLE " + gerarNomeTabela(object);
+		
+		/*
+		 * CREATE TABLE nome_tabela (
+		 * modelo varchar(20),
+		 * ano integer );
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * */
+		
+		
 		// TODO Auto-generated method stub
-		return null;
+		return query;
 	}
 
-	public boolean isNumber(Object object) {
-		Number valor = null;
-		try {
-			valor = (Number) object;
-		} catch (ClassCastException ex) {
-			return false;
-		}
-		return valor instanceof Number;
+	private String gerarNomeTabela(Object object) {
+		return Util.pegarClasse(object).getSimpleName();
 	}
+
+
+	
 
 }

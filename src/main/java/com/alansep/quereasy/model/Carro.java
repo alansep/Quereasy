@@ -1,6 +1,9 @@
 package com.alansep.quereasy.model;
 
-public class Carro {
+import com.alansep.quereasy.anotations.Tabela;
+
+@Tabela(nome = "automoveis")
+public class Carro{
 
 	private String modelo;
 	private Integer ano;
